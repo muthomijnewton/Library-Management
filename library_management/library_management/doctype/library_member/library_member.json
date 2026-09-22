@@ -12,6 +12,7 @@
   "last_name",
   "full_name",
   "email_address",
+  "user",
   "phone"
  ],
  "fields": [
@@ -49,12 +50,19 @@
    "fieldtype": "Data",
    "label": "Phone",
    "options": "Phone"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User",
+   "unique": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-09-22 11:43:39.595682",
+ "modified": "2026-09-22 18:12:31.690796",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Library Member",

@@ -19,6 +19,7 @@ class LibraryMember(Document):
 		full_name: DF.Data | None
 		last_name: DF.Data | None
 		phone: DF.Data | None
+		user: DF.Link | None
 	# end: auto-generated types
 
 	_DOCTYPE_NAME = "Library Member"
