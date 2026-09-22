@@ -2,18 +2,21 @@
  "actions": [],
  "allow_bulk_edit": 1,
  "allow_rename": 1,
+ "autoname": "field:article_name",
  "creation": "2026-09-22 09:04:01.678132",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "section_break_qhbq",
   "article_name",
-  "image",
   "author",
-  "description",
   "isbn",
+  "image",
+  "column_break_akbv",
   "status",
-  "publisher"
+  "publisher",
+  "section_break_zyvr",
+  "description"
  ],
  "fields": [
   {
@@ -25,11 +28,13 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Article Name",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   },
   {
    "fieldname": "image",
    "fieldtype": "Attach Image",
+   "hidden": 1,
    "label": "Image"
   },
   {
@@ -59,15 +64,25 @@
    "fieldname": "publisher",
    "fieldtype": "Data",
    "label": "Publisher"
+  },
+  {
+   "fieldname": "column_break_akbv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_zyvr",
+   "fieldtype": "Section Break"
   }
  ],
  "grid_page_length": 50,
+ "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-09-22 09:08:59.231716",
+ "modified": "2026-09-22 10:23:21.187038",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Article",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
@@ -81,6 +96,28 @@
    "role": "System Manager",
    "share": 1,
    "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Librarian",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Library Member",
+   "share": 1
   }
  ],
  "row_format": "Dynamic",
