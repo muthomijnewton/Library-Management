@@ -2,8 +2,8 @@
 # For license information, please see license.txt
 
 import frappe
-from frappe.model.document import Document
 from frappe.model.docstatus import DocStatus
+from frappe.model.document import Document
 
 
 class LibraryTransaction(Document):
@@ -65,9 +65,7 @@ class LibraryTransaction(Document):
 		article = frappe.get_doc("Article", self.article)
 
 		if article.status == "Available":
-			frappe.throw(
-				"Article cannot be returned without being issued first"
-			)
+			frappe.throw("Article cannot be returned without being issued first")
 
 	def validate_maximum_limit(self):
 		max_articles = frappe.db.get_single_value(
@@ -96,9 +94,7 @@ class LibraryTransaction(Document):
 		currently_issued = issued_count - return_count
 
 		if currently_issued >= max_articles:
-			frappe.throw(
-				"Maximum limit reached for issuing articles"
-			)
+			frappe.throw("Maximum limit reached for issuing articles")
 
 	def validate_membership(self):
 		valid_membership = frappe.db.exists(
@@ -112,6 +108,4 @@ class LibraryTransaction(Document):
 		)
 
 		if not valid_membership:
-			frappe.throw(
-				"The member does not have a valid membership"
-			)
+			frappe.throw("The member does not have a valid membership")
