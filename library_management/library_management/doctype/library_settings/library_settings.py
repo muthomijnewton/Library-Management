@@ -1,8 +1,9 @@
 # Copyright (c) 2026, Muthomi Newton and contributors
 # For license information, please see license.txt
 
-# import frappe
+import frappe
 from frappe.model.document import Document
+from frappe.utils import cint
 
 
 class LibrarySettings(Document):
@@ -19,3 +20,9 @@ class LibrarySettings(Document):
 	# end: auto-generated types
 
 	_DOCTYPE_NAME = "Library Settings"
+
+	def validate(self):
+		if cint(self.loan_period) <= 0:
+			frappe.throw("Loan Period must be greater than zero")
+		if cint(self.max_articles) <= 0:
+			frappe.throw("Maximum Number of Issued Articles must be greater than zero")
