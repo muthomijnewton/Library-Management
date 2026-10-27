@@ -2,6 +2,7 @@
 # For license information, please see license.txt
 
 import frappe
+from frappe import _
 from frappe.model.document import Document
 from frappe.utils import cint
 
@@ -23,6 +24,6 @@ class LibrarySettings(Document):
 
 	def validate(self):
 		if cint(self.loan_period) <= 0:
-			frappe.throw("Loan Period must be greater than zero")
+			frappe.throw(_("Loan Period must be greater than zero"))
 		if cint(self.max_articles) <= 0:
-			frappe.throw("Maximum Number of Issued Articles must be greater than zero")
+			frappe.throw(_("Maximum Number of Issued Articles must be greater than zero"))
