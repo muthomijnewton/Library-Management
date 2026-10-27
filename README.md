@@ -60,8 +60,9 @@ Memberships define the period during which a member is allowed to borrow article
 The system:
 
 * Validates active memberships
-* Prevents overlapping active memberships
-* Automatically calculates the membership end date
+* Prevents overlapping submitted memberships, including shared boundary dates
+* Allows non-overlapping memberships to be entered in any date order
+* Calculates the membership end date while saving the draft
 * Uses the configured loan period from Library Settings
 
 ### Library Transactions
@@ -220,11 +221,11 @@ Current configurable settings include:
 
 ### Loan Period
 
-Defines the number of days for which a membership remains active.
+Defines the day offset added to the membership start date to calculate its end date (default: 30). Both endpoints are eligible borrowing dates; a renewal must start after the previous end date. This setting controls membership duration, not a borrowed book's due date. The value must be greater than zero.
 
 ### Maximum Number of Issued Articles
 
-Defines the maximum number of articles a member can have issued simultaneously.
+Defines the maximum number of articles a member can have issued simultaneously (default: 10). The value must be greater than zero. Existing sites should review and save Library Settings after upgrading.
 
 ## Transaction Workflow
 

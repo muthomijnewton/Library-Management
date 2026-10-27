@@ -17,12 +17,18 @@
   {
    "fieldname": "loan_period",
    "fieldtype": "Int",
-   "label": "Loan Period"
+   "label": "Loan Period",
+   "default": "30",
+   "reqd": 1,
+   "non_negative": 1
   },
   {
    "fieldname": "max_articles",
    "fieldtype": "Int",
-   "label": "Maximum Number of Issued Articles"
+   "label": "Maximum Number of Issued Articles",
+   "default": "10",
+   "reqd": 1,
+   "non_negative": 1
   }
  ],
  "grid_page_length": 50,

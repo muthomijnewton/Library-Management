@@ -25,5 +25,4 @@ class LibraryMember(Document):
 	_DOCTYPE_NAME = "Library Member"
 
 	def before_save(self):
-		self.full_name = f'{self.first_name} {self.last_name or ""}'
-
+		self.full_name = f"{self.first_name} {self.last_name or ''}"
