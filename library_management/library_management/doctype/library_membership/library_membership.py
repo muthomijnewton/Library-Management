@@ -2,6 +2,7 @@
 # For license information, please see license.txt
 
 import frappe
+from frappe import _
 from frappe.model.docstatus import DocStatus
 from frappe.model.document import Document
 from frappe.utils import add_days, cint
@@ -28,13 +29,13 @@ class LibraryMembership(Document):
 
 	def validate(self):
 		if not self.from_date:
-			frappe.throw("From Date is required")
+			frappe.throw(_("From Date is required"))
 
 		loan_period = frappe.db.get_single_value("Library Settings", "loan_period")
 		# Preserve the existing 30-day fallback for unconfigured sites.
 		loan_period = 30 if loan_period in (None, "") else cint(loan_period)
 		if loan_period <= 0:
-			frappe.throw("Loan Period must be greater than zero")
+			frappe.throw(_("Loan Period must be greater than zero"))
 		self.to_date = add_days(self.from_date, loan_period)
 
 	def before_submit(self):
@@ -50,4 +51,4 @@ class LibraryMembership(Document):
 			},
 		)
 		if exists:
-			frappe.throw("There is an overlapping membership for this member")
+			frappe.throw(_("There is an overlapping membership for this member"))
